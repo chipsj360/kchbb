@@ -66,7 +66,6 @@
           <input type="submit" value="Collect">
         </div>
 </div>
-
 </form>
 <script src="lib/js/bootstrap.bundle.min.js"></script>  
 
