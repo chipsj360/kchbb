@@ -109,6 +109,7 @@ $blood = new BloodRepository($db);
             <i class='bx bx-log-out'></i>
             <!-- <a class="nav-link active" aria-current="page" href="index.php">Home</a> -->
             <span class="links_name">Log out</span>
+            <a class="dropdown-item" href="login.php"><i class="bx bx-log-out"></i> Sign Out</a>
           </a>
         </li>
       </ul>
