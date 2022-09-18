@@ -48,12 +48,13 @@
             <button type="submit" name="login" class="btn btn-primary col-12" onclick="onSubmitDetails(event)">Login</button>
         </div>
     </form>
-     <div class="text-center mt-4">Not registered yet? <a href="donor.php">Sign up</a></div> 
+     <div class="text-center mt-4">Not registered yet? <a href="signup.php">Sign up</a></div> 
     <p>Copyright &copy;whitehorse.com</p>
 
    
 </div>
-</div><!--form div-->
+</div>
+<!--form div-->
 </div>
 </div>
 

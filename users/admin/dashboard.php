@@ -56,7 +56,7 @@ $blood = new BloodRepository($db);
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
+ 
 <body>
 <div class="sidebar">
     <div class="logo-details">
@@ -105,8 +105,9 @@ $blood = new BloodRepository($db);
           </a>
         </li>        
         <li class="log_out">
-          <a href="#">
+          <a href="login.php">
             <i class='bx bx-log-out'></i>
+            <!-- <a class="nav-link active" aria-current="page" href="index.php">Home</a> -->
             <span class="links_name">Log out</span>
           </a>
         </li>
@@ -142,78 +143,89 @@ $blood = new BloodRepository($db);
      <div class="">
        
 	    <button class="btn btn-outline-secondary desktop" onclick="location.href='<?php if (!isset($_SESSION['name'])) {
-                                                                                        echo '../../login.php';
-                                                                                    } else {
-                                                                                        echo '../../services/authentication.php?logout=1';
-                                                                                    } ?>';" type="button"><?php if (isset($_SESSION['name'])) {
-                                                                                          echo $_SESSION['name'];                                                                                     } else {
-                                                                                           echo "Sign in";
-                                                                                           } ?></button>
-                                                                                                    
+          echo '../../login.php';
+            } else {
+                  echo '../../services/authentication.php?logout=1';
+              } ?>';" type="button"><?php if (isset($_SESSION['name'])) {
+                    echo $_SESSION['name'];                                                                                     } else {
+                      echo "Sign in";
+                      } ?></button>
+                              
       </div>
     </nav>
 
-<!--
     <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Donors</div>
-            <div class="number">4076</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from Last Year</span>
-            </div>
-          </div>
-          <i class='bx bx-cart-alt cart'></i>
+       <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <div class="recent-sales box">
+                              <div class="title"><h2>Donors</h2></div>
+                              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                              <button class="btn btn-outline-dark ml" onclick="location.href='../../donor.php'">+ Add New</button>
+                              
+                              </div>
+                              <div class="sales-details">
+                            <table class="table table-hover caption-top table-responsive table-borderless" id="donors">          
+                            <div class="button">                       
+                            </div> 
+        <table class="table table-hover caption-top table-responsive table-borderless" id="donors">          
+          <div class="button">                       
+          </div>                    
         </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Lives Saved</div>
-            <div class="number">3876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from Last Year</span>
-            </div>
-          </div>
-          <i class='bx bxs-cart-add cart two' ></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Budget</div>
-            <div class="number">$1287</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          <i class='bx bx-cart cart three' ></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Deaths</div>
-            <div class="number">110</div>
-            <div class="indicator">
-              <i class='bx bx-down-arrow-alt down'></i>
-              <span class="text">Down From Today</span>
-            </div>
-          </div>
-          <i class='bx bxs-cart-download cart four' ></i>
-        </div>
-      </div>
-	  -->
+          <thead>
+            <tr class="heade">
+              <th>User Id</th>
+              <th>Full Names</th>
+              <th>Sex</th>
+              <th>DOB</th>
+              <th>B.Group</th>
+              <th>Contact</th>
+              <th>Weight</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <?php
+            $donors = $donor->read();
+            //$donors = $donor->search_read();
+            foreach ($donors as $donorz) { ?>
+              <tr class="text-center">
+                <td><?php echo $donorz['donor_id']; ?></td>
+                <td><?php echo ucwords($donorz['first_name'] . " " . $donorz['last_name']); ?></td>
+                <td><?php echo $donorz['gender']; ?></td>
+                <td><?php echo $donorz['dob']; ?></td>
+                <td><?php echo $donorz['blood_group']; ?></td>
+                <td><?php echo $donorz['phone_number']; ?></td>
+                <td><?php echo $donorz['weight']; ?></td>
+                <td><?php echo ucwords($donorz['user_name']); ?></td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a href="../../services/donor_services.php?delete=<?php echo $donorz['donor_id']; ?>" class="btn btn-danger">Delete</a>
+                    <a href="../../donationform.php?blood=<?php echo $donorz['donor_id']; ?>" class="btn btn-secondary">Blood</a>
+                  </div>
+                </td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	  
 
-      <div class="sales-boxes">
+      <!-- <div class="sales-boxes">
         <div class="recent-sales box">
           <div class="title">Donors</div>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <button class="btn btn-outline-dark ml" onclick="location.href='../../donor.php'">+ Add New</button>
         </div>
           <div class="sales-details">
-          <table class="table table-hover caption-top table-responsive table-borderless" id="donors">          
-          <div class="button"> 
-                       
-          </div>          
+            <table class="table table-hover caption-top table-responsive table-borderless" id="donors">          
+          <div class="button">                       
+          </div>                    
         </div>
           <thead>
             <tr class="heade">
@@ -252,61 +264,12 @@ $blood = new BloodRepository($db);
           </tbody>
         </table>
         
-      </div>
+      </div> -->
           <div class="button">
             <!--a href="#"></!--a-->
           </div>
-		  <!--
-       </div>
-        <div class="top-sales box">
-          <div class="title">Blood Groups</div>
-          <ul class="top-sales-details">
-            <li>
-            <a href="#">     
-            </a>
-            <span class="price">A+</span>
-          </li>
-          <li>
-            <a href="#">     
-            </a>
-          </li>
-          <li>
-            <a href="#">   
-            </a>
-            <span class="price">A-</span>
-          </li>
-          <li>
-            <a href="#">              
-            </a>
-            <span class="price">B+</span>
-          </li>
-          <li>
-            <a href="#">
-            </a>
-            <span class="price">B-</span>
-          </li>
-          </ul>
-          <li>
-            <a href="#">     
-            </a>
-            <span class="price">AB+</span>
-          </li>
-          <li>
-            <a href="#">     
-            </a>
-            <span class="price">AB-</span>
-          </li>
-          <li>
-            <a href="#">     
-            </a>
-            <span class="price">O+</span>
-          </li>
-          <li>
-            <a href="#">     
-            </a>
-            <span class="price">O-</span>
-          </li>
-            </div> -->
+		
+    
       </div>
     </div>
   </section>

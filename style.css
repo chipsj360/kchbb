@@ -144,3 +144,12 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
+.logo {
+  margin-top: 0px;
+  padding-top: 0;
+}
+
+.logo img {
+  width: 100px;
+  border-radius: 50px;
+}   
