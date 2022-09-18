@@ -110,14 +110,14 @@ $donor=new DonorRepository($db);
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Donors</div>
-            <div class="number">4076</div>
+            <!-- <div class="box-topic">Donors</div> -->
+            <!-- <div class="number"></div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from Last Year</span>
-            </div>
+            </div> -->
           </div>
-          <i class='bx bx-cart-alt cart'></i>
+          <!-- <i class='bx bx-cart-alt cart'></i> -->
         </div>
       </div>
 
@@ -189,7 +189,7 @@ $donor=new DonorRepository($db);
             <!--a href="#"></!--a-->
           </div>
        </div>
-        <div class="top-sales box">
+        <!-- <div class="top-sales box">
           <div class="title">Blood Groups</div>
           <ul class="top-sales-details">
             <li>
@@ -237,7 +237,7 @@ $donor=new DonorRepository($db);
             </a>
             <span class="price">O-</span>
           </li>
-            </div>
+            </div> -->
       </div>
     </div>
   </section>

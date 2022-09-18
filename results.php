@@ -20,10 +20,11 @@
   <h2 class="text-center">Blood Testing</h2>
   
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <!-- <a class="nav-link active" aria-current="page" href="index.php">Home</a> -->
+          <button type="button" class="btn mb-1 btn-outline-secondary" href="index.php" >Home</button>
         </li>        
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard.php">Dashboard</a>
+        <button type="button" class="btn mb-1 btn-outline-secondary" href="index.php" >Dashboard</button>
         </li>
     
 </center>
@@ -67,7 +68,7 @@
                             <button type="submit"  class="btn btn-danger col-12" name=" results" >Submit</button>
                         </div>
                     </form>   </center>                 
-                </div>
+                </div> 
             </div>
 </div>  -->
 
